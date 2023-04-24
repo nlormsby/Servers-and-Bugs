@@ -1,6 +1,6 @@
 ## Part 1
 
-Code for `StringServer`:
+Code for `StringServer`:  
 ```
 import java.io.IOException;
 import java.net.URI;
@@ -48,4 +48,21 @@ Examples of using `/add-message`:
 ![Image](Add_Banana.png)  
 * The method called in the screenshot was `handleRequest` which determines the course of action depending on the URI.
 * The relevant argument `url` from method `handleRequest` is what is typed in the search bar, determining what is deplayed on the page. For this example `url` is set to `http://localhost:4011/add-message?s=banana`. The field `str` in class `Handler` is what is displayed on the page and is set as `"\n apple"` before the method call.
-* From this specific request, the `str` field changes to a string `"\napple\nbanana"` due to the `handleRequest` method adding a `"\n"` and the string found after the `"+"` in `url` which in this case is `"banana"`.
+* From this specific request, the `str` field changes to a string `"\napple\nbanana"` due to the `handleRequest` method adding a `"\n"` and the string found after the `"+"` in `url` which in this case is `"banana"`.  
+  
+## Part 2  
+The method `reversed` in class `ArrayExamples` has a bug which can be found through testing as a JUnit test  
+* An example of a failure-inducing input would be an array containing 1, 2, 3, 4, 5, that being `{1, 2, 3, 4, 5}`.  
+```@Test
+  public void testReversedFail() {
+    int[] input1 = {1, 2, 3, 4, 5};
+    assertArrayEquals(new int[]{5, 4, 3, 2, 1}, 
+    ArrayExamples.reversed(input1));
+  }```
+* An example of an input that doesn't induce a failure would be an empty array, that being `{}`.  
+```@Test
+  public void testReversedPass() {
+    int[] input1 = { };
+    assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+  }```
+* The first test gave a symptom of 
