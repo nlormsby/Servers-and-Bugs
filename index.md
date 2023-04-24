@@ -94,4 +94,14 @@ the first array to be changed to all null.
 By switching what array goes in which, the new array is now
 set with each element being from the old array backwards, 
 causing the new array to now be the backwards one,
-forcing the return to be of the new array as well.
+forcing the return to be of the new array as well.  
+  
+## Part 3
+I learned that because an input can cause multiple bugs,
+its hard to know if any changes you make to your program
+actually affect it in a positive manner.
+This is because even if you fix a bug, if an input causes
+multiple bugs, you will still see an error when you
+run your program, even after you fixed a bug. That is why
+you want to make you want to make tests as specific as possible
+to make it easier to check if you're helping your program or not.
