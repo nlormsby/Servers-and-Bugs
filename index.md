@@ -52,17 +52,36 @@ Examples of using `/add-message`:
   
 ## Part 2  
 The method `reversed` in class `ArrayExamples` has a bug which can be found through testing as a JUnit test  
-* An example of a failure-inducing input would be an array containing 1, 2, 3, 4, 5, that being `{1, 2, 3, 4, 5}`.  
+* An example of a failure-inducing input would be an array containing 1, 2, 3, 4, 5, that being `{1, 2, 3, 4, 5}`:  
 ```@Test
   public void testReversedFail() {
     int[] input1 = {1, 2, 3, 4, 5};
     assertArrayEquals(new int[]{5, 4, 3, 2, 1}, 
     ArrayExamples.reversed(input1));
-  }```
-* An example of an input that doesn't induce a failure would be an empty array, that being `{}`.  
+  }
+```
+* An example of an input that doesn't induce a failure would be an empty array, that being `{}`:  
 ```@Test
   public void testReversedPass() {
     int[] input1 = { };
     assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
-  }```
-* The first test gave a symptom of 
+  }
+```
+* The first test gave a symptom, and the second test passed:  
+![Image](Test_Symptom.png)  
+* The bug in method `reversed`, as depicted with a before and after the bug fix:  
+```static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```  
+```static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[i] = arr[arr.length - i - 1];
+    }
+    return newArray;
+  }```  
