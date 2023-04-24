@@ -84,4 +84,5 @@ The method `reversed` in class `ArrayExamples` has a bug which can be found thro
       newArray[i] = arr[arr.length - i - 1];
     }
     return newArray;
-  }```  
+  }
+```  
