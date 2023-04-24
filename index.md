@@ -86,3 +86,12 @@ The method `reversed` in class `ArrayExamples` has a bug which can be found thro
     return newArray;
   }
 ```  
+The issue with the program was that it created a new array
+with the length of the original array and copied all elements
+of the new array into the original array backwards.
+Since the new array had nothing put into it, this caused
+the first array to be changed to all null.
+By switching what array goes in which, the new array is now
+set with each element being from the old array backwards, 
+causing the new array to now be the backwards one,
+forcing the return to be of the new array as well.
