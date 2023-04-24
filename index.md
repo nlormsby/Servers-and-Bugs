@@ -1,3 +1,6 @@
+## Part 1
+
+Code for `StringServer`:
 ```
 import java.io.IOException;
 import java.net.URI;
@@ -36,3 +39,13 @@ class SearchEngine {
     }
 }
 ```
+
+Examples of using `/add-message`:  
+![Image](Add_Apple.png)  
+* The one method called was `handleRequest` which determines the course of action depending on the URI.
+* The relevant argument of `url` of method `handleRequest` is what is typed in the search bar, determining what is displayed on the page. For this example `url` is set to `http://localhost:4011/add-message?s=apple`. The field `str` in class `Handler` is what is displayed on the page and is first set to an empty string `""`.
+* From this specific request the `str` field changes to a string `"\napple"` due to the `handleRequest` method adding a `"\n"` and the string found after the `"="` in `url` which in this case is `"apple"`.  
+![Image](Add_Banana.png)  
+* The method called in the screenshot was `handleRequest` which determines the course of action depending on the URI.
+* The relevant argument `url` from method `handleRequest` is what is typed in the search bar, determining what is deplayed on the page. For this example `url` is set to `http://localhost:4011/add-message?s=banana`. The field `str` in class `Handler` is what is displayed on the page and is set as `"\n apple"` before the method call.
+* From this specific request, the `str` field changes to a string `"\napple\nbanana"` due to the `handleRequest` method adding a `"\n"` and the string found after the `"+"` in `url` which in this case is `"banana"`.
